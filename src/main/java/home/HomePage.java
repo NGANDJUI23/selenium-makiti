@@ -1,12 +1,16 @@
 package home;
 
+import model.PartnerData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import service.FileServiceImpl;
 
 import java.time.Duration;
+import java.util.List;
 
 public class HomePage {
     protected WebDriver driver;
+
 
     // Locators de la page Home
     private By appStoreButton = By.partialLinkText("App Store");

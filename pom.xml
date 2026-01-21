@@ -22,5 +22,84 @@
       <version>6.1.0-M1</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.21.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Source: https://mvnrepository.com/artifact/org.json/json -->
+
+    <!-- Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>6.3.3</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
+    <plugins>
+      <!-- Maven Surefire Plugin pour JUnit 5 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.4</version>
+        <configuration>
+          <!-- Ne lancer que les tests se terminant par *Test.java -->
+          <includes>
+<!--            <include>**/*Test.java</include>-->
+            <include>**/PartnerPageTest.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+
+    <!-- Profil par défaut -->
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <app.url>https://matoa.io/</app.url>
+        <app.browser>chrome</app.browser>
+      </properties>
+    </profile>
+
+    <!-- Profil PROD -->
+    <profile>
+      <id>prod</id>
+      <properties>
+        <app.url>https://agency.matoa.io/</app.url>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>chrome</id>
+      <properties>
+        <app.browser>chrome</app.browser>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>firefox</id>
+      <properties>
+        <app.browser>firefox</app.browser>
+      </properties>
+    </profile>
+
+  </profiles>
 </project>

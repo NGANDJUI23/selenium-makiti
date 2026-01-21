@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "operatorName": "GENERAL",
+      "email": "dilane@gmail.com",
+      "civility": "Monsieur",
+      "contactName": "Dilane KOMBOU",
+      "phone": "658788223"
+    },
+    {
+      "operatorName": "FINESS",
+      "email": "gaelle@gmail.com",
+      "civility": "Madame",
+      "contactName": "Mmme GAELLE",
+      "phone": "698784227"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package home;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,43 +11,46 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.BaseTest;
+import utils.ConfigReader;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HomePageTest {
+@ExtendWith(BaseTest.ScreenshotOnFailureExtension.class)
+class HomePageTest extends BaseTest {
 
-    @BeforeEach
-    void setUp() {
-        System.out.println("Debut du test de la home page");
-    }
+//    @BeforeEach
+//    void setUp() {
+//        System.out.println("Debut du test de la home page");
+//    }
+//
+//    @AfterEach
+//    void tearDown() {
+//        System.out.println("Fin du test de la home page");
+//    }
 
-    @AfterEach
-    void tearDown() {
-        System.out.println("Fin du test de la home page");
-    }
-
-    // Ma petite fonction qui regroupe le code redondant
-    private void utils(WebDriver driver) {
-        // Configuration du timeout pour 10 sec d'attente
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        // Agrandissement au max de l'ecran
-        driver.manage().window().maximize();
-
-        // Chargement de la page de matoa
-        driver.get("https://matoa.io/");
-
-    }
+//    // Ma petite fonction qui regroupe le code redondant
+//    private void utils(WebDriver driver) {
+//        // Configuration du timeout pour 10 sec d'attente
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//
+//        // Agrandissement au max de l'ecran
+//        driver.manage().window().maximize();
+//
+//        // Chargement de la page de matoa
+//        driver.get(ConfigReader.get("app.url"));
+//
+//    }
 
     @Test
     public void howItWorkLinkTest(){
 
-        //Initialisation de mon objet Webdriver compatible firefox
-        WebDriver driver = new EdgeDriver();
-
-        utils(driver);
+//        //Initialisation de mon objet Webdriver compatible firefox
+//        WebDriver driver = new EdgeDriver();
+//
+//        utils(driver);
 
         // Instantiation de la HomePage
         HomePage homePage = new HomePage(driver);
@@ -68,8 +72,8 @@ class HomePageTest {
 
     @Test
     public void appStoreButtonClickTest(){
-        WebDriver driver = new EdgeDriver();
-        utils(driver);
+//        WebDriver driver = new EdgeDriver();
+//        utils(driver);
         HomePage homePage = new HomePage(driver);
 //        WebElement appStoreButton = driver.findElement(
 //                By.partialLinkText("App Store")
@@ -91,8 +95,8 @@ class HomePageTest {
 
     @Test
     public void isDownloadButtonTest(){
-        WebDriver driver = new EdgeDriver();
-        utils(driver);
+//        WebDriver driver = new EdgeDriver();
+//        utils(driver);
         HomePage homePage = new HomePage(driver);
 
         assertTrue(homePage.isDownloadButton());
@@ -101,8 +105,8 @@ class HomePageTest {
     //Exervice pratiaue 1
     @Test
     public void aboutUsButtonClickTest(){
-        WebDriver driver = new EdgeDriver();
-        utils(driver);
+//        WebDriver driver = new EdgeDriver();
+//        utils(driver);
         HomePage homePage = new HomePage(driver);
         homePage.clickAboutUsButton();
 
@@ -113,6 +117,6 @@ class HomePageTest {
         String currentUrl = homePage.getCurrentUrl();
 
         // Test de redirection vers la page de contact
-        assertEquals("https://makiti-group.com/#contact", currentUrl);
+        assertEquals("https://matoa.io/", currentUrl);
     }
 }
