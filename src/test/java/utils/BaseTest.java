@@ -30,9 +30,12 @@ public class BaseTest {
                 break;
 
             case "chrome":
-            default:
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
+                break;
+            default:
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
                 break;
         }
 
