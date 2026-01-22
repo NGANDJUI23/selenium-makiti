@@ -20,6 +20,9 @@ jobs:
       - name: Vérifier Chrome
         run: google-chrome --version
 
+      - name: Debug structure
+        run: pwd && ls -R
+
       - name: Exécuter les tests Selenium
         working-directory: project
         run: mvn test
