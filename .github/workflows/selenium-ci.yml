@@ -31,8 +31,8 @@ jobs:
         run: ls -R
 
       - name: Installation des dépendances
-        run: mvn clean install
+        run: mvn clean install -DskipTests
 
       - name: Exécuter les tests Selenium
-        run: mvn clean verify
+        run: mvn test
 
