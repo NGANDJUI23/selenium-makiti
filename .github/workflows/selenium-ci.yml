@@ -31,5 +31,5 @@ jobs:
         run: ls -R
 
       - name: Exécuter les tests Selenium
-        run: mvn clean test
+        run: mvn clean verify
 
