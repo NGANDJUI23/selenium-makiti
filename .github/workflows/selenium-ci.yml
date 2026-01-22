@@ -30,6 +30,9 @@ jobs:
       - name: Debug structure
         run: ls -R
 
+      - name: Installation des dépendances
+        run: mvn clean install
+
       - name: Exécuter les tests Selenium
         run: mvn clean verify
 
