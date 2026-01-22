@@ -1,13 +1,16 @@
 package utils;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.*;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,16 +29,28 @@ public class BaseTest {
         switch (browser.toLowerCase()) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+                FirefoxOptions optionFirefox = new FirefoxOptions();
+                optionFirefox.addArguments("--headless");
+                optionFirefox.addArguments("--no-sandbox");
+                optionFirefox.addArguments("--disable-dev-shm-usage");
+                driver = new FirefoxDriver(optionFirefox);
                 break;
 
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                driver = new ChromeDriver(options);
                 break;
             default:
                 WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
+                EdgeOptions optionEdge = new EdgeOptions();
+                optionEdge.addArguments("--headless");
+                optionEdge.addArguments("--no-sandbox");
+                optionEdge.addArguments("--disable-dev-shm-usage");
+                driver = new EdgeDriver(optionEdge);
                 break;
         }
 
