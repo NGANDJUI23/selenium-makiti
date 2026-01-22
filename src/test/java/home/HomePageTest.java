@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -98,6 +99,7 @@ class HomePageTest extends BaseTest {
 //        WebDriver driver = new EdgeDriver();
 //        utils(driver);
         HomePage homePage = new HomePage(driver);
+
 
         assertTrue(homePage.isDownloadButton());
     }

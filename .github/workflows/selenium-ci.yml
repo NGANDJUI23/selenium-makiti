@@ -10,6 +10,16 @@ on:
 jobs:
   selenium-tests:
     runs-on: ubuntu-latest
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+        options: >-
+          --health-cmd="curl -s http://localhost:4444/wd/hub/status || exit 1"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=5
 
     steps:
       - name: Installer Java
@@ -17,9 +27,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Installer Chrome
-        uses: browser-actions/setup-chrome@v1
 
       - name: Vérifier Chrome
         run: google-chrome --version
@@ -34,5 +41,5 @@ jobs:
         run: mvn clean install -DskipTests
 
       - name: Exécuter les tests Selenium
-        run: mvn test
+        run: mvn clean verify
 

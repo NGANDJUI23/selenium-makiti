@@ -1,8 +1,9 @@
 package home;
 
 import model.PartnerData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import service.FileServiceImpl;
 
 import java.time.Duration;
@@ -22,6 +23,7 @@ public class HomePage {
     // Constructeur de la HomePage
     public HomePage(WebDriver driver) {
         this.driver = driver;
+
     }
 
     // ACTION (J2)
@@ -40,7 +42,16 @@ public class HomePage {
 
     // Exercices pratique 1
     public void clickAboutUsButton() {
-        this.driver.findElement(aboutUsButton).click();
+//        this.driver.findElement(aboutUsButton).click();
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(aboutUsButton));
+
+// Scroll vers l’élément
+        ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+// Cliquer via JS pour éviter l’ElementClickInterceptedException
+        ((JavascriptExecutor) this.driver).executeScript("arguments[0].click();", element);
     }
     // Fin
 

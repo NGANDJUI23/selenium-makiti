@@ -59,7 +59,7 @@
           <!-- Ne lancer que les tests se terminant par *Test.java -->
           <includes>
 <!--            <include>**/*Test.java</include>-->
-            <include>**/PartnerPageTest.java</include>
+            <include>**/HomePageTest.java</include>
           </includes>
         </configuration>
       </plugin>
