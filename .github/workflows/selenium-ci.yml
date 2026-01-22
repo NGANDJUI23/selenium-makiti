@@ -25,8 +25,9 @@ jobs:
         run: google-chrome --version
 
       - name: Debug structure
-        run: pwd && ls -R
+        run: ls -R
 
       - name: Exécuter les tests Selenium
+        working-directory: project
         run: mvn clean test
 
