@@ -1,7 +1,11 @@
 name: selenium-ci.yml
 on:
   push:
+    branches:
+      - master
   pull_request:
+    branches:
+      - master
 
 jobs:
   selenium-tests:
@@ -24,6 +28,5 @@ jobs:
         run: pwd && ls -R
 
       - name: Exécuter les tests Selenium
-        working-directory: project
-        run: mvn test
+        run: mvn clean test
 
