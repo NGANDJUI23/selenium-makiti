@@ -43,3 +43,12 @@ jobs:
       - name: Exécuter les tests Selenium
         run: mvn clean verify
 
+      - name: Generate Allure report
+        run: mvn allure:report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin
+
