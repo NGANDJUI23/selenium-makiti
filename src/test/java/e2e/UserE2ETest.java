@@ -1,5 +1,7 @@
 package e2e;
 
+//import io.qameta.allure.Epic;
+//import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +11,8 @@ import db.DatabaseUtils; // ton utilitaire SQL
 
 import java.util.List;
 
+//@Epic("Test end to End")
+//@Feature("create user")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UserE2ETest {
 
