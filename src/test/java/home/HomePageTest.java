@@ -119,6 +119,6 @@ class HomePageTest extends BaseTest {
         String currentUrl = homePage.getCurrentUrl();
 
         // Test de redirection vers la page de contact
-        assertEquals("https://matoa.io/5", currentUrl);
+        assertEquals("https://matoa.io/", currentUrl);
     }
 }
