@@ -51,12 +51,12 @@ public class BaseTest {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionChrome = new ChromeOptions();
-                optionChrome.addArguments("--headless");
-                optionChrome.addArguments("--no-sandbox");
-                optionChrome.addArguments("--disable-dev-shm-usage");
-//                driver = new ChromeDriver(optionChrome);
+//                optionChrome.addArguments("--headless");
+//                optionChrome.addArguments("--no-sandbox");
+//                optionChrome.addArguments("--disable-dev-shm-usage");
+                driver = new ChromeDriver(optionChrome);
                 try {
-                    driver = new RemoteWebDriver(new URL("http://localhost:4444"), optionChrome);
+//                    driver = new RemoteWebDriver(new URL("http://localhost:4444"), optionChrome);
                     driver.manage().window().maximize();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

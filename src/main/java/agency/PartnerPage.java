@@ -37,7 +37,7 @@ public class PartnerPage {
     public void becomPartenerClick() {
         this.driver.findElement(becomePartner).click();
     }
-
+//updatz
     public boolean isPresent(){
         return this.driver.findElement(civilityPartner).isDisplayed();
     }
