@@ -1,9 +1,11 @@
 package agency;
 
 import model.PartnerData;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import utils.BaseTest;
+import utils.ConfigReader;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +24,12 @@ class PartnerPageTest extends BaseTest {
 ////        driver.get("https://agency.matoa.io/");
 //
 //    }
+@BeforeEach
+void openApplication() {
+    String url = ConfigReader.get("agency.matoa.url");
+    System.out.println("URL chargée = " + url);
+    driver.get(url);
+}
     @Test
     public void testFieldForm(){
         //Initialisation de mon objet Webdriver compatible firefox

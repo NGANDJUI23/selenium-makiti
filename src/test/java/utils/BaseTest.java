@@ -4,6 +4,7 @@ package utils;
 //import org.openqa.selenium.edge.EdgeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -53,7 +54,7 @@ public class BaseTest {
                 optionChrome.addArguments("--headless");
                 optionChrome.addArguments("--no-sandbox");
                 optionChrome.addArguments("--disable-dev-shm-usage");
-//                driver = new ChromeDriver(options);
+//                driver = new ChromeDriver(optionChrome);
                 try {
                     driver = new RemoteWebDriver(new URL("http://localhost:4444"), optionChrome);
                     driver.manage().window().maximize();
@@ -83,12 +84,12 @@ public class BaseTest {
 
     }
 
-    @BeforeEach
-    void openApplication() {
-        String url = ConfigReader.get("app.url");
-        System.out.println("URL chargée = " + url);
-        driver.get(url);
-    }
+//    @BeforeEach
+//    void openApplication() {
+//        String url = ConfigReader.get("agency.matoa.url");
+//        System.out.println("URL chargée = " + url);
+//        driver.get(url);
+//    }
 
     @AfterAll
     void tearDown() {

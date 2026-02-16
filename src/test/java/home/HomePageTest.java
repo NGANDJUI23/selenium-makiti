@@ -22,10 +22,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(BaseTest.ScreenshotOnFailureExtension.class)
 class HomePageTest extends BaseTest {
 
-//    @BeforeEach
-//    void setUp() {
-//        System.out.println("Debut du test de la home page");
-//    }
+@BeforeEach
+void openApplication() {
+    String url = ConfigReader.get("matoa.url");
+    System.out.println("URL chargée = " + url);
+    driver.get(url);
+}
 //
 //    @AfterEach
 //    void tearDown() {
@@ -104,7 +106,7 @@ class HomePageTest extends BaseTest {
         assertTrue(homePage.isDownloadButton());
     }
 
-    //Exervice pratiaue 1
+    //Exercice pratiaue 1
     @Test
     public void aboutUsButtonClickTest(){
 //        WebDriver driver = new EdgeDriver();
