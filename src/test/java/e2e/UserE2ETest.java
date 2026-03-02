@@ -17,9 +17,9 @@ import java.util.List;
 public class UserE2ETest {
 
     private WebDriver driver;
-    private final String email = "ngandjui.ivan@institutsaintjean.org";
-    private final String username = "admin";
-    private final String password = "admin";
+    private final String email = "delors.ivan@institutsaintjean.org";
+    private final String username = "admin65";
+    private final String password = "admin64";
 
     @BeforeAll
     void setup() {
@@ -40,7 +40,7 @@ public class UserE2ETest {
 
     @AfterEach
     void cleanup() throws Exception {
-        DatabaseUtils.deleteUser(email);
+//        DatabaseUtils.deleteUser(email);
     }
 
     @Test
