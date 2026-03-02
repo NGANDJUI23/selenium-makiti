@@ -21,7 +21,7 @@ class LoginServiceTest {
                 .build();
         falseUsers = UserBuilder.aUser()
                 .withUsername("badUser")
-                .withPassword("badPass")
+                .withPassword("badPasse")
                 .build();
         loginService = new LoginService("root", "pass");
     }
