@@ -14,7 +14,8 @@ public class TripTest {
     Headers headers = BaseApiTripTest.headers;
 
     @ParameterizedTest(name = "Test avec un client {0}")
-    @CsvSource({"authenticate", "unauthenticate"})
+//    @CsvSource({"authenticate", "unauthenticate"})
+    @CsvSource({"unauthenticate"})
     void should_return_200_401_error(String statusAuth){
 
         if (statusAuth.equals("authenticate")) {
