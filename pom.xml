@@ -128,6 +128,8 @@
           <includes>
 <!--            <include>**/*Test.java</include>-->
             <include>**/HomePageTest.java</include>
+            <include>**/LoginServiceTest</include>
+            <include>**/TripTest</include>
           </includes>
           <argLine>
               -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
